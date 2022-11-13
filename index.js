@@ -40,14 +40,20 @@ fs.readFile("./data.json", "utf8", (error, jsonString) => {
         return;
     }
     try {
-        const catLinks = JSON.parse(jsonString);
-        console.log(cat);
+        var catLinks = JSON.parse(jsonString);
+        console.log(catLinks);
     } catch (error) {
         console.log("Error parsing JSON string: ", error);
     }
 });
 
-function getBase64Image(img) {
-    var canvas = d
+let i = 0;
+while (i < catLinks.length) {
+
 }
 
+let catData = {
+    link: "link",
+    picture: "picture",
+    name: "name"
+}
