@@ -19,6 +19,11 @@ const puppeteer = require("puppeteer");
             return srcs;
         });
 
+        const petNameSrcs = await page.evaluate(() => {
+            const petNameSrcs = Array.from(document.querySelectorAll('img[class="item_image lazy"]')).map((image) => image.getAttribute("src"));
+            return petNameSrcs;
+        });
+
         console.log("Page has been evaluated!");
 
         // data goes into json file
@@ -46,14 +51,3 @@ fs.readFile("./data.json", "utf8", (error, jsonString) => {
         console.log("Error parsing JSON string: ", error);
     }
 });
-
-let i = 0;
-while (i < catLinks.length) {
-
-}
-
-let catData = {
-    link: "link",
-    picture: "picture",
-    name: "name"
-}
